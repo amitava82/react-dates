@@ -159,7 +159,7 @@ export default class SingleDatePicker extends React.Component {
   }
 
   getDayPickerContainerClasses() {
-    const { orientation, withPortal, withFullScreenPortal, anchorDirection, focused } = this.props;
+    const { orientation, withPortal, withFullScreenPortal, anchorDirection, focused, className } = this.props;
     const { hoverDate } = this.state;
 
     const dayPickerClassName = cx('SingleDatePicker__picker', {
@@ -172,7 +172,7 @@ export default class SingleDatePicker extends React.Component {
       'SingleDatePicker__picker--portal': withPortal || withFullScreenPortal,
       'SingleDatePicker__picker--full-screen-portal': withFullScreenPortal,
       'SingleDatePicker__picker--valid-date-hovered': hoverDate && !this.isBlocked(hoverDate),
-    });
+    }, className);
 
     return dayPickerClassName;
   }
